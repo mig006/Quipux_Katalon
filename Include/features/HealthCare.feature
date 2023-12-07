@@ -9,3 +9,4 @@ Feature: Como usuario de healthcare necesito navegar en el sitio web
       And Envio el formulario
       And vuelvo a la pagina de inicio
       Then cierro el navegador
+     

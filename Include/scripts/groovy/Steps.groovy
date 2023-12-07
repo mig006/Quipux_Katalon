@@ -44,45 +44,48 @@ import cucumber.api.java.en.When
 
 
 class Steps {
-	
+
 	@Given ("Abro el navegador y me dirijo a healthcare")
 	def Abro_el_navegador_y_me_dirijo_a_healthcare () {
 		WebUI.openBrowser('https://katalon-demo-cura.herokuapp.com/')
+		WebUI.maximizeWindow()
 	}
-	
+
 	@When ("presiono el boton de make appointment")
 	def presiono_el_navegador_y_me_dirijo_a_healthcare () {
 		WebUI.click(findTestObject('makeappointment'))
 	}
-	
+
 	@And ("lleno los datos")
 	def lleno_los_datos () {
 		WebUI.setText(findTestObject('data'), 'John Doe')
 		WebUI.setText(findTestObject('data2'), 'ThisIsNotAPassword')
 	}
-	
+
 	@And ("inicio sesion")
 	def inicio_sesion () {
 		WebUI.click(findTestObject('login'))
 	}
-	
+
 	@And ("lleno el formulario")
 	def lleno_el_formulario () {
 		WebUI.selectOptionByLabel(findTestObject('select'), 'Hongkong CURA Healthcare Center', false)
+		WebUI.check(findTestObject('checkbox'))
+		WebUI.check(findTestObject('radio'))
 		WebUI.setText(findTestObject('date'), '11/11/2019')
 		WebUI.setText(findTestObject('comment'), 'hola mundo')
 	}
-	
+
 	@And ("Envio el formulario")
 	def Envio_el_formulario () {
 		WebUI.click(findTestObject('send'))
 	}
-	
+
 	@And ("vuelvo a la pagina de inicio")
 	def vuelvo_a_la_pagina_de_inicio () {
 		WebUI.click(findTestObject('back'))
 	}
-	
+
 	@Then ("cierro el navegador")
 	def cierro_el_navegador () {
 		WebUI.closeBrowser()
